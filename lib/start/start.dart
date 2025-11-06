@@ -63,7 +63,7 @@ class _StartUpScreenState extends State<StartUpScreen>
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: const Text('Google Sign In - Coming Soon!'),
-        backgroundColor: Colors.orange.shade600,
+        backgroundColor: Colors.green.shade600,
         behavior: SnackBarBehavior.floating,
       ),
     );
@@ -104,133 +104,150 @@ class _StartUpScreenState extends State<StartUpScreen>
               left: 0,
               right: 0,
               child: SafeArea(
-              child: Center(
-                child: AnimatedBuilder(
-                  animation: _animationController,
-                  builder: (context, child) {
-                    return Opacity(
-                      opacity: _fadeAnimation.value,
-                      child: Transform.scale(
-                        scale: _scaleAnimation.value,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                child: Center(
+                  child: AnimatedBuilder(
+                    animation: _animationController,
+                    builder: (context, child) {
+                      return Opacity(
+                        opacity: _fadeAnimation.value,
+                        child: Transform.scale(
+                          scale: _scaleAnimation.value,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
 
-                            // App Name
-                            const Text(
-                              'AUTO CARE',
-                              style: TextStyle(
-                                fontSize: 42,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                letterSpacing: 3,
-                                shadows: [
-                                  Shadow(
-                                    offset: Offset(2, 2),
-                                    blurRadius: 8,
-                                    color: Colors.black45,
+                              // App Name
+                              Stack(
+                                children: [
+                                  // Background glow effect
+                                  Text(
+                                    'AUTO CARE',
+                                    style: TextStyle(
+                                      fontSize: 44,
+                                      fontWeight: FontWeight.w900,
+                                      foreground: Paint()
+                                        ..style = PaintingStyle.stroke
+                                        ..strokeWidth = 3
+                                        ..color = Colors.black.withOpacity(0.3),
+                                      letterSpacing: 4,
+                                    ),
+                                  ),
+                                  // Main text
+                                  const Text(
+                                    'AUTO CARE',
+                                    style: TextStyle(
+                                      fontSize: 44,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                      letterSpacing: 4,
+                                      shadows: [
+                                        Shadow(
+                                          offset: Offset(2, 2),
+                                          blurRadius: 12,
+                                          color: Colors.black54,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
 
-                            const SizedBox(height: 10),
+                              const SizedBox(height: 10),
 
-                            // Tagline
-                            Text(
-                              'Premium Service Center',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.orange.shade400,
-                                letterSpacing: 2,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-
-                            const SizedBox(height: 110),
-
-                            // Sign Up Button
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 40),
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => const SignUpScreen(),
-                                    ),
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.orange.shade600,
-                                  foregroundColor: Colors.white,
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  elevation: 8,
-                                  shadowColor: Colors.orange.withOpacity(0.5),
-                                  minimumSize: const Size(double.infinity, 55),
-                                ),
-                                child: const Text(
-                                  'Sign Up',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1.5,
-                                  ),
+                              // Tagline
+                              Text(
+                                'Premium Service Center',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.green.shade400,
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
-                            ),
 
-                            const SizedBox(height: 20),
+                              const SizedBox(height: 110),
 
-                            // Replace the Google button section with this:
-
-// Continue with Google Button
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 40),
-                              child: OutlinedButton.icon(
-                                onPressed: _handleGoogleSignIn,
-                                icon: Image.asset(
-                                  'assets/google_logo.png',
-                                  width: 24,
-                                  height: 24,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    // Fallback if image fails to load
-                                    return const Icon(Icons.g_mobiledata, size: 24);
+                              // Sign Up Button
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 40),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => const WelcomeScreen(),
+                                      ),
+                                    );
                                   },
-                                ),
-                                label: const Text(
-                                  'Continue with Google',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 0.5,
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green.shade600,
+                                    foregroundColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    elevation: 8,
+                                    shadowColor: Colors.green.withOpacity(0.5),
+                                    minimumSize: const Size(double.infinity, 55),
                                   ),
-                                ),
-                                style: OutlinedButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  side: const BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
+                                  child: const Text(
+                                    'Sign Up',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1.5,
+                                    ),
                                   ),
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  minimumSize: const Size(double.infinity, 55),
                                 ),
                               ),
-                            ),
-                          ],
+
+                              const SizedBox(height: 20),
+
+                              // Continue with Google Button
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 40),
+                                child: OutlinedButton.icon(
+                                  onPressed: _handleGoogleSignIn,
+                                  icon: Image.asset(
+                                    'assets/google_logo.png',
+                                    width: 24,
+                                    height: 24,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      // Fallback if image fails to load
+                                      return const Icon(Icons.g_mobiledata, size: 24);
+                                    },
+                                  ),
+                                  label: const Text(
+                                    'Continue with Google',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 0.5,
+                                    ),
+                                  ),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: Colors.white,
+                                    side: const BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    minimumSize: const Size(double.infinity, 55),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
-            ),
+
             // Bottom Text
             Positioned(
               bottom: 40,
@@ -266,4 +283,3 @@ class _StartUpScreenState extends State<StartUpScreen>
     );
   }
 }
-
