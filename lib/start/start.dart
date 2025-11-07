@@ -71,9 +71,7 @@ class _StartUpScreenState extends State<StartUpScreen>
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: Stack(
           children: [
             // Background Image
@@ -279,7 +277,6 @@ class _StartUpScreenState extends State<StartUpScreen>
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
