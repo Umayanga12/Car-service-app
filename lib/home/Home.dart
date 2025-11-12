@@ -6,6 +6,7 @@ import '../data/service_data.dart';
 import '../model/serviceModel.dart';
 import 'providers_list_screen.dart';
 import 'ad.dart';
+import 'autocare.dart'; // Add this import
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -166,11 +167,16 @@ class HomeScreen extends StatelessWidget {
 
                 const SizedBox(height: 32),
 
-                // Carousel Section - FIXED
+                // Carousel Section
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
                   child: CarouselSection(),
                 ),
+
+                const SizedBox(height: 32),
+
+                // Auto Care Featured Card - NEW
+                _buildAutoCareCard(context),
 
                 const SizedBox(height: 32),
 
@@ -260,6 +266,181 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavBar(
         currentIndex: 0,
         onTap: (index) => _onNavBarTap(context, index),
+      ),
+    );
+  }
+
+  // NEW: Auto Care Featured Card Widget
+  Widget _buildAutoCareCard(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Autocare()),
+          );
+        },
+        child: Container(
+          height: 200,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                const Color(0xFF00E676).withOpacity(0.2),
+                const Color(0xFF00B8D4).withOpacity(0.1),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: const Color(0xFF00E676).withOpacity(0.3),
+              width: 1.5,
+            ),
+          ),
+          child: Stack(
+            children: [
+              // Background pattern
+              Positioned(
+                right: -20,
+                top: -20,
+                child: Icon(
+                  Icons.directions_car,
+                  size: 150,
+                  color: Colors.white.withOpacity(0.05),
+                ),
+              ),
+
+              // Content
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF00E676),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Icon(
+                                Icons.directions_car,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            const Text(
+                              "AUTO CARE",
+                              style: TextStyle(
+                                color: Color(0xFF00E676),
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          "Premium Vehicle Services",
+                          style: TextStyle(
+                            color: Colors.grey[300],
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          "Oil Change • Car Wash • Repairs • Tire Service",
+                          style: TextStyle(
+                            color: Colors.grey[500],
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    // Call to action
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF00E676),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Text(
+                                "Explore Services",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              SizedBox(width: 6),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                                size: 16,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFFB800).withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: const Color(0xFFFFB800),
+                              width: 1,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Icon(
+                                Icons.star,
+                                color: Color(0xFFFFB800),
+                                size: 14,
+                              ),
+                              SizedBox(width: 4),
+                              Text(
+                                "4.8 Rating",
+                                style: TextStyle(
+                                  color: Color(0xFFFFB800),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
