@@ -138,7 +138,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                             ),
                             const SizedBox(height: 16),
                             const Text(
-                              "AUTO CARE",
+                              "ProServe",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 32,

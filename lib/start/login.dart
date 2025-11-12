@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
                                 colors: [Colors.green, Color(0xFF00E676)],
                               ).createShader(bounds),
                               child: const Text(
-                                "AUTO CARE",
+                                "ProServe",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 42,

@@ -119,7 +119,7 @@ class _StartUpScreenState extends State<StartUpScreen>
                                 children: [
                                   // Background glow effect
                                   Text(
-                                    'AUTO CARE',
+                                    'ProServe',
                                     style: TextStyle(
                                       fontSize: 44,
                                       fontWeight: FontWeight.w900,
@@ -132,7 +132,7 @@ class _StartUpScreenState extends State<StartUpScreen>
                                   ),
                                   // Main text
                                   const Text(
-                                    'AUTO CARE',
+                                    'ProServe',
                                     style: TextStyle(
                                       fontSize: 44,
                                       fontWeight: FontWeight.w900,
@@ -256,7 +256,7 @@ class _StartUpScreenState extends State<StartUpScreen>
                 child: const Column(
                   children: [
                     Text(
-                      'Your Car Deserves the Best',
+                      'Your Deserves the Best Service',
                       style: TextStyle(
                         color: Colors.white70,
                         fontSize: 14,

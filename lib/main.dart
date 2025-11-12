@@ -14,7 +14,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Car Service',
+      title: 'Service',
       initialRoute: "/",
       routes: {
         '/': (context) => StartUpScreen(),
